@@ -4,8 +4,7 @@ export async function fetchPups() {
     "X-RapidAPI-Host": "dogs-by-api-ninjas.p.rapidapi.com",
   };
 
-  const url =
-    "https://dogs-by-api-ninjas.p.rapidapi.com/v1/dogs?name=dalmatian&shedding=4";
+  const url = "https://dogs-by-api-ninjas.p.rapidapi.com/v1/dogs?shedding=3";
 
   const response = await fetch(url, { headers: headers });
 

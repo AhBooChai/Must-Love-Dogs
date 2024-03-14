@@ -1,4 +1,4 @@
-import { CustomFilter, Hero, SearchBar } from "@/components";
+import { CustomFilter, DogCard, Hero, SearchBar } from "@/components";
 import { fetchPups } from "@/utils";
 import Image from "next/image";
 
@@ -29,7 +29,7 @@ export default async function Home() {
         {!isDataEmpty ? (
           <section>
             <div className="home__cars-wrapper">
-              {allPups?.map((pup) => (
+              {allPups?.map((dog) => (
                 <DogCard dog={dog} />
               ))}
             </div>
