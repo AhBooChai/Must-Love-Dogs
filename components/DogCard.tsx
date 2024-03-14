@@ -3,6 +3,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { DogProps } from "@/types";
 import CustomButton from "./CustomButton";
+import DogDetails from "./DogDetails";
 
 interface DogCardProps {
   dog: DogProps;
@@ -69,7 +70,11 @@ const DogCard = ({ dog }: DogCardProps) => {
           />
         </div>
       </div>
-      <DogDetails />
+      <DogDetails
+        isOpen={isOpen}
+        closeModal={() => setIsOpen(false)}
+        dog={dog}
+      />
     </div>
   );
 };

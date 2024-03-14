@@ -6,6 +6,7 @@ import SearchBar from "./SearchBar";
 import CustomFilter from "./CustomFilter";
 import SearchBreed from "./SearchBreed";
 import DogCard from "./DogCard";
+import DogDetails from "./DogDetails";
 
 export {
   Hero,
@@ -16,4 +17,5 @@ export {
   CustomFilter,
   SearchBreed,
   DogCard,
+  DogDetails,
 };
