@@ -7,6 +7,7 @@ import CustomFilter from "./CustomFilter";
 import SearchBreed from "./SearchBreed";
 import DogCard from "./DogCard";
 import DogDetails from "./DogDetails";
+import SearchButton from "./SearchButton";
 
 export {
   Hero,
@@ -18,4 +19,5 @@ export {
   SearchBreed,
   DogCard,
   DogDetails,
+  SearchButton,
 };

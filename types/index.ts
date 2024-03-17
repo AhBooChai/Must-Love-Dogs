@@ -28,3 +28,21 @@ export interface DogProps {
   barking: number;
   name: string;
 }
+
+export interface FilterProps {
+  name: string;
+  grooming: number;
+  trainability: number;
+  energy: number;
+  limit: number;
+}
+
+export interface OptionProps {
+  title: string;
+  value: string;
+}
+
+export interface CustomFilterProps {
+  title: string;
+  options: OptionProps[];
+}

@@ -1,9 +1,16 @@
 import { CustomFilter, DogCard, Hero, SearchBar } from "@/components";
+import { dailyExercise, grooming } from "@/constants";
 import { fetchPups } from "@/utils";
 import Image from "next/image";
 
-export default async function Home() {
-  const allPups = await fetchPups();
+export default async function Home({ searchParams }) {
+  const allPups = await fetchPups({
+    name: searchParams.breed || "",
+    grooming: searchParams.grooming || "",
+    trainability: searchParams.trainability || "",
+    energy: searchParams.energy || "",
+    limit: searchParams.limit || 10,
+  });
 
   const isDataEmpty = !Array.isArray(allPups) || allPups.length < 1 || !allPups;
 
@@ -21,8 +28,8 @@ export default async function Home() {
           <SearchBar />
 
           <div className="home__filter-container">
-            {/* <CustomFilter title="fuel" />
-            <CustomFilter title="year" /> */}
+            <CustomFilter title="grooming" options={grooming} />
+            <CustomFilter title="dailyExercise" options={dailyExercise} />
           </div>
         </div>
 

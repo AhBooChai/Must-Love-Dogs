@@ -453,3 +453,21 @@ export const dogBreeds = [
   "Yorkshire Terrier",
   "Šarplaninac",
 ];
+
+export const grooming = [
+  { title: "grooming", value: "" },
+  { title: "once a week", value: 1 },
+  { title: "twice a week", value: 2 },
+  { title: "3 times a week", value: 3 },
+  { title: "every other day", value: 4 },
+  { title: "daily brushing", value: 5 },
+];
+
+export const dailyExercise = [
+  { title: "amount of daily exercise", value: "" },
+  { title: "10 - 20mins", value: 1 },
+  { title: "20 - 40mins", value: 2 },
+  { title: "40 - 60mins", value: 3 },
+  { title: "60 - 90mins", value: 4 },
+  { title: "60 - 120mins", value: 5 },
+];
