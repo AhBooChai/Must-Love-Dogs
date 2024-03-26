@@ -4,7 +4,7 @@ const Footer = () => {
   let year = d.getFullYear();
 
   return (
-    <footer className="bottom-0 w-full pt-8 text-black mb-2 z-10">
+    <footer className="bottom-0 w-full pt-8 text-darkBrown bg-pink mb-2 z-10">
       <div className="flex justify-center items-center gap-3 p-4">
         <Image
           src="/logo.svg"

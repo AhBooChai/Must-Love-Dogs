@@ -1,5 +1,4 @@
-import { CustomFilter, DogCard, Hero, SearchBar } from "@/components";
-import { dailyExercise, grooming } from "@/constants";
+import { CustomFilter, DogCard, Hero, SearchBar, ShowMore } from "@/components";
 import { fetchPups } from "@/utils";
 import Image from "next/image";
 
@@ -15,21 +14,20 @@ export default async function Home({ searchParams }) {
   const isDataEmpty = !Array.isArray(allPups) || allPups.length < 1 || !allPups;
 
   return (
-    <main className="overflow-hidden">
+    <main className="overflow-hidden bg-pink">
       <Hero />
 
       <div className="mt-12 padding-x padding-y max-width" id="discover">
         <div className="home__container">
-          <h1 className="text-4xl font-extrabold">Dog Breeds</h1>
-          <p>Get to know your favourite dog breed</p>
+          <h1 className="text-4xl font-extrabold text-darkBrown">Dog Breeds</h1>
+          <p className="text-darkBrown">Get to know your favourite dog breed</p>
         </div>
 
         <div className="home__filters">
           <SearchBar />
 
           <div className="home__filter-container">
-            <CustomFilter title="grooming" options={grooming} />
-            <CustomFilter title="dailyExercise" options={dailyExercise} />
+            <CustomFilter />
           </div>
         </div>
 

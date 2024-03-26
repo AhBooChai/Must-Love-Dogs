@@ -23,6 +23,7 @@ const DogDetails = ({ isOpen, closeModal, dog }: DogDetailsProps) => {
     energy,
     barking,
     name,
+    drooling,
   } = dog;
   return (
     <>
@@ -51,10 +52,10 @@ const DogDetails = ({ isOpen, closeModal, dog }: DogDetailsProps) => {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto tranform rounded-2xl bg-white p-6 text-left shadow-xl transition-all flex flex-col gap-5">
+                <Dialog.Panel className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto tranform rounded-2xl bg-white p-6 text-darkBrown/70 text-left shadow-xl transition-all flex flex-col gap-5">
                   <button
                     type="button"
-                    className="absolute top-1 right-2 z-10 w-fit p-2 bg-primary-blue-100 rounded-full"
+                    className="absolute top-1 right-2 z-10 w-fit p-2 bg-pink rounded-full"
                     onClick={closeModal}
                   >
                     <Image
@@ -67,7 +68,7 @@ const DogDetails = ({ isOpen, closeModal, dog }: DogDetailsProps) => {
                   </button>
 
                   <div className="flex-1 flex flex-col gap-3">
-                    <div className="relative w-full h-60 bg-pattern bg-cover bg-center rounded-lg">
+                    <div className="relative w-full h-60 bg-cover bg-center rounded-lg">
                       <Image
                         src={image_link}
                         alt={name}
@@ -81,19 +82,84 @@ const DogDetails = ({ isOpen, closeModal, dog }: DogDetailsProps) => {
                   <div className="flex-1 flex flex-col gap-2">
                     <h2 className="font-semibold text-xl capitalize">{name}</h2>
                     <div className="mt-3 flex flex-wrap gap-4">
-                      {Object.entries(dog).map(([key, value]) => (
-                        <div
-                          className="flex justify-between gap-5 w-full text-right"
-                          key={key}
-                        >
-                          <h4 className="text-grey capitalize">
-                            {key.split("_").join(" ")}
-                          </h4>
-                          <p className="text-black-100 font-semibold">
-                            {value}
-                          </p>
-                        </div>
-                      ))}
+                      <div className="flex justify-between gap-5 w-full text-right">
+                        <h4 className="text-darkBrown/70 capitalize">
+                          Barking
+                        </h4>
+                        <p className="text-darkBrown font-semibold">
+                          {barking}
+                        </p>
+                      </div>
+                      <div className="flex justify-between gap-5 w-full text-right">
+                        <h4 className="text-darkBrown/70 capitalize">
+                          Grooming
+                        </h4>
+                        <p className="text-darkBrown font-semibold">
+                          {grooming}
+                        </p>
+                      </div>
+                      <div className="flex justify-between gap-5 w-full text-right">
+                        <h4 className="text-darkBrown/70 capitalize">
+                          Drooling
+                        </h4>
+                        <p className="text-darkBrown font-semibold">
+                          {drooling}
+                        </p>
+                      </div>
+                      <div className="flex justify-between gap-5 w-full text-right">
+                        <h4 className="text-darkBrown/70 capitalize">
+                          Shedding
+                        </h4>
+                        <p className="text-darkBrown font-semibold">
+                          {shedding}
+                        </p>
+                      </div>
+                      <div className="flex justify-between gap-5 w-full text-right">
+                        <h4 className="text-darkBrown/70 capitalize">
+                          Energy Level
+                        </h4>
+                        <p className="text-darkBrown font-semibold">{energy}</p>
+                      </div>
+                      <div className="flex justify-between gap-5 w-full text-right">
+                        <h4 className="text-darkBrown/70 capitalize">
+                          Trainability
+                        </h4>
+                        <p className="text-darkBrown font-semibold">
+                          {trainability}
+                        </p>
+                      </div>
+                      <div className="flex justify-between gap-5 w-full text-right">
+                        <h4 className="text-darkBrown/70 capitalize">
+                          Protectiveness
+                        </h4>
+                        <p className="text-darkBrown font-semibold">
+                          {protectiveness}
+                        </p>
+                      </div>
+                      <div className="flex justify-between gap-5 w-full text-right">
+                        <h4 className="text-darkBrown/70 capitalize">
+                          Playfulness
+                        </h4>
+                        <p className="text-darkBrown font-semibold">
+                          {playfulness}
+                        </p>
+                      </div>
+                      <div className="flex justify-between gap-5 w-full text-right">
+                        <h4 className="text-darkBrown/70 capitalize">
+                          Good with children
+                        </h4>
+                        <p className="text-darkBrown font-semibold">
+                          {good_with_children}
+                        </p>
+                      </div>
+                      <div className="flex justify-between gap-5 w-full text-right">
+                        <h4 className="text-darkBrown/70 capitalize">
+                          Good with other dogs
+                        </h4>
+                        <p className="text-darkBrown font-semibold">
+                          {good_with_other_dogs}
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </Dialog.Panel>

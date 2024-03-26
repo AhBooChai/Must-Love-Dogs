@@ -13,6 +13,9 @@ module.exports = {
       },
       colors: {
         "black-100": "#2B2C35",
+        darkPink: "	#fbdcdc",
+        pink: "#fef8f8",
+        darkBrown: "#6A515E",
         "primary-blue": {
           DEFAULT: "#2B59FF",
           100: "#F5F8FF",

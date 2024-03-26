@@ -8,6 +8,7 @@ import SearchBreed from "./SearchBreed";
 import DogCard from "./DogCard";
 import DogDetails from "./DogDetails";
 import SearchButton from "./SearchButton";
+import ShowMore from "./ShowMore";
 
 export {
   Hero,
@@ -20,4 +21,5 @@ export {
   DogCard,
   DogDetails,
   SearchButton,
+  ShowMore,
 };

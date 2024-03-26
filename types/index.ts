@@ -27,6 +27,7 @@ export interface DogProps {
   energy: number;
   barking: number;
   name: string;
+  drooling: number;
 }
 
 export interface FilterProps {
@@ -38,11 +39,16 @@ export interface FilterProps {
 }
 
 export interface OptionProps {
-  title: string;
-  value: string;
+  title: number;
+  value: number;
 }
 
 export interface CustomFilterProps {
-  title: string;
+  title: number;
   options: OptionProps[];
+}
+
+export interface ShowMoreProps {
+  pageNumber: number;
+  isNext: boolean;
 }

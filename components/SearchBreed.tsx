@@ -34,7 +34,7 @@ const SearchBreed = ({ breed, setBreed }: SearchBreedProps) => {
           </Combobox.Button>
 
           <Combobox.Input
-            className="search-manufacturer__input"
+            className="search-manufacturer__input shadow-[inset_0rem_0.2rem_0.4rem_0_rgb(0,0,0,0.1)]"
             placeholder="greyhound"
             displayValue={(breed: string) => breed}
             onChange={(e) => setQuery(e.target.value)}

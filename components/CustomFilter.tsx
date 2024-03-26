@@ -1,38 +1,47 @@
 "use client";
-import { Fragment, useState } from "react";
+
+import { useState, Fragment } from "react";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import { Listbox, Transition } from "@headlessui/react";
-import { CustomFilterProps } from "@/types";
-import { updateSearchParams } from "@/utils";
 
-const CustomFilter = ({ title, options }: CustomFilterProps) => {
+const energyLevel = ["1", "2", "3", "4", "5"];
+
+const CustomFilter = () => {
   const router = useRouter();
-  const [selected, setSelected] = useState(options[0]);
+  const searchParams = useSearchParams();
+  const selectedEnergyLevel = searchParams.get("energy") || energyLevel[0];
+  const pathname = usePathname();
 
-  const handleUpdateParams = (e: { type: string; value: string }) => {
-    const newPathName = updateSearchParams(title, e.value.toLowerCase());
+  const handleUpdateParams = (energyLevel: string) => {
+    const params = new URLSearchParams(searchParams.toString());
 
-    router.push(newPathName);
+    if (energyLevel) {
+      params.set("energy", energyLevel);
+    } else {
+      params.delete("energy");
+    }
+    params.set("energy", energyLevel);
+    const url = `${pathname}?${params.toString()}`;
+    router.push(url);
   };
   return (
     <div className="w-fit">
       <Listbox
-        value={selected}
-        onChange={(e) => {
-          setSelected(e);
-          handleUpdateParams(e);
+        value={selectedEnergyLevel}
+        onChange={(energyLevel) => {
+          handleUpdateParams(energyLevel);
         }}
       >
         <div className="relative w-fit z-10">
           <Listbox.Button className="custom-filter__btn">
-            <span className="block truncate">{selected.title}</span>
+            <span className="text-darkBrown">Energy Level</span>
             <Image
               src="/chevron-up-down.svg"
+              alt="chevron up down"
               width={20}
               height={20}
               className="ml-4 object-contain"
-              alt="chevron up and down"
             />
           </Listbox.Button>
           <Transition
@@ -42,13 +51,13 @@ const CustomFilter = ({ title, options }: CustomFilterProps) => {
             leaveTo="opacity-0"
           >
             <Listbox.Options className="custom-filter__options">
-              {options.map((option) => (
+              {energyLevel.map((energy, energyIdx) => (
                 <Listbox.Option
-                  key={option.title}
-                  value={option}
+                  key={energyIdx}
+                  value={energy}
                   className={({ active }) =>
-                    `relative cursor-default select-none py-2 px-4 ${
-                      active ? "bg-primary-blue text-white" : "text-gray-900"
+                    `relative cursor-default select-none py-2 pl-10 pr-4 ${
+                      active ? "bg-darkBrown text-white" : "text-darkBrown"
                     }`
                   }
                 >
@@ -58,7 +67,7 @@ const CustomFilter = ({ title, options }: CustomFilterProps) => {
                         selected ? "font-medium" : "font-normal"
                       }`}
                     >
-                      {option.title}
+                      {energy}
                     </span>
                   )}
                 </Listbox.Option>

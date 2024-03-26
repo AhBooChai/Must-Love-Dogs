@@ -27,7 +27,7 @@ const DogCard = ({ dog }: DogCardProps) => {
   return (
     <div className="car-card group">
       <div className="car-card__content">
-        <h2 className="car-card__content-title">{name}</h2>
+        <h2 className="car-card__content-title text-darkBrown">{name}</h2>
       </div>
 
       <div className="relative w-full h-40 my-3 object-contain">
@@ -43,33 +43,28 @@ const DogCard = ({ dog }: DogCardProps) => {
         <div className="flex group-hover:invisible w-full justify-between text-gray">
           <div className="flex flex-col justify-center items-center gap-2">
             <Image src="/grooming.png" alt="grooming" width={20} height={20} />
-            <p className="text-[14px]">{grooming}</p>
+            <p className="text-[14px] text-darkBrown">{grooming}</p>
           </div>
-        </div>
-        <div className="flex group-hover:invisible w-full justify-between text-gray">
           <div className="flex flex-col justify-center items-center gap-2">
-            <Image src="/walking.png" alt="exercise" width={20} height={20} />
-            <p className="text-[14px]">{energy}</p>
+            <Image src="/barking.png" alt="barking" width={20} height={20} />
+            <p className="text-[14px] text-darkBrown">{barking}</p>
           </div>
-        </div>
-        <div className="flex group-hover:invisible w-full justify-between text-gray">
           <div className="flex flex-col justify-center items-center gap-2">
             <Image src="/training.png" alt="training" width={20} height={20} />
-            <p className="text-[14px]">{trainability}</p>
+            <p className="text-[14px] text-darkBrown">{trainability}</p>
           </div>
         </div>
-
         <div className="car-card__btn-container">
           <CustomButton
             title="View More"
-            containerStyles="w-full py-[16px] rounded-full
-            bg-primary-blue"
-            textStyles="text-white text-[14px] leading-[17px] font-bold"
+            containerStyles="w-full py-[16px] rounded-full bg-darkBrown"
+            textStyles="text-pink text-[14px] leading-[17px] font-bold"
             rightIcon="/right-arrow.svg"
             handleClick={() => setIsOpen(true)}
           />
         </div>
       </div>
+
       <DogDetails
         isOpen={isOpen}
         closeModal={() => setIsOpen(false)}
