@@ -1,47 +1,54 @@
-"use client";
-import React, { useState } from "react";
-import { useRouter } from "next/navigation";
-import SearchBreed from "./SearchBreed";
-import SearchButton from "./SearchButton";
+'use client';
+import { useRouter } from 'next/navigation';
+import React, { useState } from 'react';
+import SearchBreed from './SearchBreed';
+import SearchButton from './SearchButton';
 
 const SearchBar = () => {
-  const [breed, setBreed] = useState("");
-  const router = useRouter();
+	const urlParam = new URLSearchParams(window.location.search);
+	const breedParam = urlParam.get('breed') || '';
 
-  const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+	const [breed, setBreed] = useState(breedParam);
+	const router = useRouter();
 
-    if (breed === "") {
-      return alert("Please fill in the search bar");
-    }
+	const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
+		e.preventDefault();
 
-    updateSearchParams(breed.toLowerCase());
-  };
+		if (breed === '') {
+			return alert('Please fill in the search bar');
+		}
 
-  const updateSearchParams = (breed: string) => {
-    const searchParams = new URLSearchParams(window.location.search);
+		updateSearchParams(breed.toLowerCase());
+	};
 
-    if (breed) {
-      searchParams.set("breed", breed);
-    } else {
-      searchParams.delete("breed");
-    }
+	const updateSearchParams = (breed: string) => {
+		// const searchParams = new URLSearchParams(window.location.search);
 
-    const newPathname = `${
-      window.location.pathname
-    }?${searchParams.toString()}`;
+		const searchParams = new URLSearchParams();
+		if (breed) {
+			searchParams.set('breed', breed);
+		} else {
+			searchParams.delete('breed');
+		}
 
-    router.push(newPathname);
-  };
+		// searchParams.delete('energy');
+		const newPathname = `${
+			window.location.pathname
+		}?${searchParams.toString()}`;
 
-  return (
-    <form className="searchbar" onSubmit={handleSearch}>
-      <div className="searchbar__item">
-        <SearchBreed breed={breed} setBreed={setBreed} />
-        <SearchButton otherClasses="sm-hidden" />
-      </div>
-    </form>
-  );
+		router.push(newPathname, {
+			scroll: false,
+		});
+	};
+
+	return (
+		<form className='searchbar' onSubmit={handleSearch}>
+			<div className='searchbar__item'>
+				<SearchBreed breed={breed} setBreed={setBreed} />
+				<SearchButton otherClasses='sm-hidden' />
+			</div>
+		</form>
+	);
 };
 
 export default SearchBar;
